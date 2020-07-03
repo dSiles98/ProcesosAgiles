@@ -1,0 +1,55 @@
+<mat-grid-list cols="3" rowHeight="3:2">
+  <mat-grid-tile  *ngFor="let music of musicOficial">    
+    <div class="card">
+      <mdb-card dark="true">
+        <div class="view overlay waves-light" mdbWavesEffect>
+            <div class="image">
+              <mdb-card-img src={{music.payload.doc.data().image}}></mdb-card-img>
+            </div>
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+        <mdb-card-body class="elegant-color white-text">
+          <mdb-card-title>
+            <h4>{{music.payload.doc.data().artist}}</h4>
+          </mdb-card-title>
+          <mdb-card-text class="white-text">
+            <mat-grid-list cols="2" rowHeight="40px">
+              <mat-grid-tile [colspan]=1 [rowspan]=1 >
+                {{music.payload.doc.data().name}}<br> Duración: {{music.payload.doc.data().duration}}
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]=1 [rowspan]=2 >
+                <button mdbBtn type="button" color="danger" mdbWavesEffect>
+                  Reproducir
+                  <mdb-icon fas icon="headphones" class="headphones"></mdb-icon>
+                  <mdb-icon fas icon="play"></mdb-icon>
+                </button>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mdb-card-text>
+        </mdb-card-body>
+      </mdb-card>
+    </div>   
+  </mat-grid-tile>
+</mat-grid-list>
+<nav aria-label="Page navigation example" class="paginator">
+  <ul class="pagination pagination-circle pg-red">
+    <li class="page-item {{first.isDisabled}}"><a class="page-link" style="color:white;" (click)="callFirts()" mdbWavesEffect>{{first.value}}</a></li>
+    <li class="page-item {{previus}}" (click)="callPrevius()">
+      <a class="page-link" aria-label="Previous"  style="color:white;" mdbWavesEffect>
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item {{item.isActive}}" *ngFor="let item of paginator" (click)="pressMe(item.value)"><a class="page-link" style="color:white;" mdbWavesEffect>{{item.value}}</a></li>
+    <li class="page-item {{next}}" (click)="callNext()">
+      <a class="page-link" aria-label="Next" style="color:white;" mdbWavesEffect>
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only" style="color:white;">Next</span>
+      </a>
+    </li>
+    <li class="page-item {{last}}" (click)="callLast()"><a class="page-link" style="color:white;" mdbWavesEffect>Last</a></li>
+  </ul>
+</nav>
+        

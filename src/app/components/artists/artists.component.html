@@ -1,0 +1,59 @@
+<form class="form-inline waves-light" id="buscar" mdbWavesEffect>
+    <div class="md-form mt-0">
+        <i class="fas fa-user prefix"></i>
+        <input class="form-control mr-sm-2" (keyup)="buscarArtista(buscarTexto.value)" color="danger" type="text" placeholder="Buscar por artista" aria-label="Search" #buscarTexto>
+    </div>
+</form>
+<mat-grid-list cols="3" rowHeight="3:2">
+    <mat-grid-tile *ngFor="let music of musics">
+        <div class="card">
+            <mdb-card dark="true">
+                <div class="view overlay waves-light" mdbWavesEffect>
+                    <div class="image">
+                        <mdb-card-img src="http://{{music.imagenArt}}"></mdb-card-img>
+                    </div>
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <mdb-card-body class="elegant-color white-text card-title">
+                    <mdb-card-title>
+                        <h4>{{music.nombreArt}}</h4>
+                    </mdb-card-title>
+                    <mdb-card-text class="white-text">
+                        <mat-grid-list cols="2" rowHeight="40px">
+                            <mat-grid-tile [colspan]=1 [rowspan]=1>
+                            </mat-grid-tile>
+                            <mat-grid-tile [colspan]=1 [rowspan]=2>
+                                <button mdbBtn type="button" color="danger" mdbWavesEffect routerLink="/album/{{music.idArtista}}">
+                    Albumes
+                    <mdb-icon fas icon="headphones" class="headphones"></mdb-icon>
+                    <mdb-icon fas icon="play"></mdb-icon>
+                  </button>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mdb-card-text>
+                </mdb-card-body>
+            </mdb-card>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+<!-- <nav aria-label="Page navigation example" class="paginator">
+    <ul class="pagination pagination-circle pg-red">
+        <li class="page-item {{first.isDisabled}}"><a class="page-link" style="color:coral;" (click)="callFirts()" mdbWavesEffect>{{first.value}}</a></li>
+        <li class="page-item {{previus}}" (click)="callPrevius()">
+            <a class="page-link" aria-label="Previous" style="color:coral;" mdbWavesEffect>
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        <li class="page-item {{item.isActive}}" *ngFor="let item of paginator" (click)="pressMe(item.value)"><a class="page-link" style="color:coral;" mdbWavesEffect>{{item.value}}</a></li>
+        <li class="page-item {{next}}" (click)="callNext()">
+            <a class="page-link" aria-label="Next" style="color:coral;" mdbWavesEffect>
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only" style="color:coral;">Next</span>
+            </a>
+        </li>
+        <li class="page-item {{last}}" (click)="callLast()"><a class="page-link" style="color:white;" mdbWavesEffect>Last</a></li>
+    </ul>
+</nav> -->

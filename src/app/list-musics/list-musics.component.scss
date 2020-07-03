@@ -1,0 +1,33 @@
+.card{
+    max-width: 80%;
+    //left: 4%;
+    margin-left: 5%;
+    max-height: 75%;
+}
+mdb-card{
+    min-width: 100%;
+    max-height: 20%;
+    left: -5%;
+}
+.image{
+    max-width: 400px;
+    min-width: 400px;
+    max-height:140px;
+}
+mat-grid-tile{
+    top: 10%;
+}
+.headphones{
+    right: 7%;
+}
+.paginator{
+    background-color: rgba(12, 12, 12, 0.904);
+    margin-top: 6%;
+    //margin-left: 38%;
+    //margin-right: 37%;
+    padding-left: 38%;
+    color: rgb(252, 251, 249);
+}
+.page-link{
+    color: white;
+}
